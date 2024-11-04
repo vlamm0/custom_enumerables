@@ -11,4 +11,9 @@ class Array
   def my_each
     self.each { |elem| block_given? ? yield(elem) : elem}
   end
+
+  # ~
+  def my_each_with_index
+    self.each_with_index { |elem, i| block_given? ? yield(elem, i) : [elem, i]}
+  end
 end
