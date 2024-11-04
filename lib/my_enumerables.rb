@@ -9,11 +9,19 @@ end
 class Array
   # Define my_each here
   def my_each
-    self.each { |elem| block_given? ? yield(elem) : elem}
+    for elem in self
+      yield(elem)
+    end
   end
 
   # ~
   def my_each_with_index
-    self.each_with_index { |elem, i| block_given? ? yield(elem, i) : [elem, i]}
+    i = 0
+    self.my_each do |elem|
+      yield(elem, i)
+      i += 1
+    end
   end
+
+
 end
