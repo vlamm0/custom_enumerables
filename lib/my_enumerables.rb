@@ -29,6 +29,10 @@ module Enumerable
   def my_none?(&block)
     !my_any?(&block)
   end
+
+  def my_count(&block)
+    block_given? ? my_select(&block).length : self.length
+  end
   
 end
 
