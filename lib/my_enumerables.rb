@@ -14,7 +14,11 @@ module Enumerable
     selected
   end
 
-  
+  # iterates through arr and returns false if any element does not meet condition, otherwise returns true
+  def my_all?
+    self.my_each { |elem| return false if !yield(elem)} 
+    true
+  end
 end
 
 # You will first have to define my_each
