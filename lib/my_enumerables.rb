@@ -19,6 +19,12 @@ module Enumerable
     self.my_each { |elem| return false if !yield(elem)} 
     true
   end
+
+  # iterates through arr and returns true if any element meets condition, otherwise returns false
+  def my_any?
+    self.my_each { |elem| return true if yield(elem)}
+    false
+  end
 end
 
 # You will first have to define my_each
