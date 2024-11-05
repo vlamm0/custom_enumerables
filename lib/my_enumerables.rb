@@ -25,6 +25,11 @@ module Enumerable
     self.my_each { |elem| return true if yield(elem)}
     false
   end
+
+  def my_none?(&block)
+    !my_any?(&block)
+  end
+  
 end
 
 # You will first have to define my_each
@@ -38,8 +43,5 @@ class Array
       yield(elem)
     end
   end
-
-  # ~
-  
 
 end
