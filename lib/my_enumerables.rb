@@ -1,5 +1,20 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    i = 0
+    self.my_each do |elem|
+      yield(elem, i)
+      i += 1
+    end
+  end
+
+  def my_select
+    selected = []
+    self.my_each { |elem| selected.push(elem) if yield(elem) }
+    selected
+  end
+
+  
 end
 
 # You will first have to define my_each
@@ -15,13 +30,6 @@ class Array
   end
 
   # ~
-  def my_each_with_index
-    i = 0
-    self.my_each do |elem|
-      yield(elem, i)
-      i += 1
-    end
-  end
-
+  
 
 end
