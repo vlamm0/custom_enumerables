@@ -33,7 +33,12 @@ module Enumerable
   def my_count(&block)
     block_given? ? my_select(&block).length : self.length
   end
-  
+
+  def my_map
+    result = []
+    my_each { |elem| result << yield(elem) }
+    result
+  end
 end
 
 # You will first have to define my_each
