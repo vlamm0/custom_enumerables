@@ -39,6 +39,11 @@ module Enumerable
     my_each { |elem| result << yield(elem) }
     result
   end
+
+  def my_inject(init, &block)
+    my_each { |elem| init = block.call(init, elem)}
+    init
+  end
 end
 
 # You will first have to define my_each
